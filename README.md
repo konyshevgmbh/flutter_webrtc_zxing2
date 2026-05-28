@@ -17,6 +17,17 @@ Real-time QR code scanner built with Flutter, using **flutter_webrtc** for camer
 - Graceful handling of "camera in use" errors with a Retry snackbar
 - Runs on Android, iOS, Web, Windows, macOS, Linux
 
+## Tuning resolution
+
+Camera constraints are set in [camera_service.dart](lib/services/camera_service.dart):
+
+```dart
+'width':  {'ideal': 640},
+'height': {'ideal': 480},
+```
+
+640×480 is intentionally kept low — smaller frames mean faster per-frame QR decoding. For better detection of small or distant QR codes, raise the values (e.g. `1280` × `720` or `1920` × `1080`). Keep in mind that higher resolution increases CPU usage and detection latency proportionally.
+
 ## Getting started
 
 ```bash
