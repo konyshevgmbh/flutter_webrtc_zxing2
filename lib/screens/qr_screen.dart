@@ -130,14 +130,12 @@ class _QrScreenState extends State<QrScreen> with WidgetsBindingObserver {
     _detecting = true;
     Future(() => _detector.detect(frame)).then((result) {
       if (!mounted) return;
-      setState(() {
-        if (result != null) {
+      if (result != null) {
+        setState(() {
           _lastResult = result;
           _lastDetectionMs = result.detectionMs;
-        } else {
-          _lastDetectionMs = result?.detectionMs ?? _lastDetectionMs;
-        }
-      });
+        });
+      }
     }).catchError((e) {
       dbg('[QR] error: $e');
     }).whenComplete(() {
