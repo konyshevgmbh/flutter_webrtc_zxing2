@@ -58270,13 +58270,12 @@ $S:367}
 A.a7_.prototype={
 $1(a){var s=this.a
 if(s.c==null)return
-s.aF(new A.a6Y(s,a))},
+if(a!=null)s.aF(new A.a6Y(s,a))},
 $S:368}
 A.a6Y.prototype={
-$0(){var s=this.b,r=this.a
-if(s!=null){r.r=s
-r.z=s.b}else{s=r.z
-r.z=s}},
+$0(){var s=this.a,r=this.b
+s.r=r
+s.z=r.b},
 $S:0}
 A.a70.prototype={
 $1(a){A.t(a)},
